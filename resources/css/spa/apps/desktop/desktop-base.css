@@ -1,0 +1,401 @@
+/* Desktop specific styles */
+
+body.sticky-bar-open {
+    @apply pb-14;
+}
+
+.svg-icon{
+    stroke-width: 2;
+}
+
+.svg-icon path{
+    stroke-width: 2;
+}
+
+body.sticky-bar-open .sticky-bar-bottom-offset{
+    @apply bottom-14;
+}
+
+body.sticky-bar-open .sticky-bar-bottom-fix{
+    @apply bottom-20;
+}
+
+.marginal-link{
+    @apply text-cap-l text-brand-900 hover:underline;
+}
+
+.sidenav-active,
+.sidenav-inactive{
+    @apply w-full px-2.5 py-2 rounded-xl border transition-all duration-150;
+}
+
+.sidenav-active span{
+    @apply text-lab-pr font-medium;
+}
+
+.sidenav-inactive span{
+    @apply first:text-lab-pr2 last:text-lab-pr2;
+}
+
+.sidenav-active{
+    @apply border-brand-900/20 bg-brand-900/10;
+}
+
+.sidenav-inactive{
+    @apply border-transparent hover:border-fill-qt hover:bg-fill-fv;
+}
+
+.active-settings-tab .link-item-container{
+    @apply bg-brand-900/10 border-brand-900/20 rounded-xl;
+}
+
+.settings-link-item{
+    @apply rounded-xl border border-transparent transition-all duration-150 hover:border-fill-qt hover:bg-fill-fv;
+}
+
+.h-screen-with-scroll{
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+}
+
+.skeleton{
+    @apply relative overflow-hidden block bg-fill-tr rounded-md leading-none;
+}
+
+.skeleton-rounded{
+    @apply relative overflow-hidden block bg-fill-tr rounded-2xl leading-none;
+}
+
+.skeleton-square{
+    @apply relative overflow-hidden block bg-fill-tr leading-none;
+}
+
+.skeleton-circle{
+    @apply relative overflow-hidden block bg-fill-tr rounded-full leading-none;
+}
+
+.skeleton::after, .skeleton-circle::after, .skeleton-square::after{
+    content: "";
+    animation: skeleton-animation 1.2s infinite;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateX(-100%);
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255, 255, 255, 0.4), rgba(255,255,255,0));
+}
+
+.ZESTEX-primary-animation{
+    @apply w-2 aspect-square rounded-full;
+    animation: primary-animation 1s infinite linear alternate;
+}
+
+@keyframes primary-animation {
+    0%  {
+        box-shadow: 12px 0 var(--button-dot-fill-pr), -12px 0 var(--button-dot-fill-sc);
+        background-color: var(--button-dot-fill-pr)
+    }
+    33% {
+        box-shadow: 12px 0 var(--button-dot-fill-pr), -12px 0 var(--button-dot-fill-sc);
+        background-color: var(--button-dot-fill-sc)
+    }
+    66% {
+        box-shadow: 12px 0 var(--button-dot-fill-sc), -12px 0 var(--button-dot-fill-pr); 
+        background-color: var(--button-dot-fill-sc)
+    }
+    100%{
+        box-shadow: 12px 0 var(--button-dot-fill-sc), -12px 0 var(--button-dot-fill-pr);
+        background-color: var(--button-dot-fill-pr)
+    }
+}
+
+@keyframes skeleton-animation {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.dropdown-menu{
+    @apply absolute py-2 overflow-hidden min-w-60 divide-y divide-fill-sc rounded-md backdrop-blur-xs bg-bg-pr/85 shadow-2xl focus:outline-hidden;
+}
+
+.dropdown-item-label{
+    @apply px-3 py-2 block text-par-n text-lab-pr2 truncate;
+}
+
+.markdown-text code {
+    @apply border text-lab-pr px-2 py-2 border-l-5 border-bord-pr rounded-r-2xl text-par-n overflow-hidden break-words rounded-md block;
+}
+
+.markdown-text a {
+    @apply text-brand-900 hover:opacity-80 font-medium;
+}
+
+.markdown-text a.mention-link {
+    @apply inline-flex items-center rounded-md px-1.5 py-0.5 font-semibold;
+    background: color-mix(in srgb, var(--brand-900) 15%, transparent);
+    color: color-mix(in srgb, var(--brand-900) 92%, black);
+}
+
+.markdown-text a.mention-link:hover {
+    @apply no-underline;
+    background: color-mix(in srgb, var(--brand-900) 24%, transparent);
+}
+
+.markdown-text a.mention-link.mention-bot {
+    background: color-mix(in srgb, #f97316 18%, transparent);
+    color: #c2410c;
+}
+
+.markdown-text a.hashtag-link {
+    @apply inline-flex items-center rounded-md px-1.5 py-0.5 font-semibold;
+    background: color-mix(in srgb, #22c55e 16%, transparent);
+    color: color-mix(in srgb, #16a34a 92%, black);
+}
+
+.markdown-text a.hashtag-link:hover {
+    @apply no-underline;
+    background: color-mix(in srgb, #22c55e 24%, transparent);
+}
+
+.bounce-up {
+    animation: bounce-up 2s ease-in-out infinite;
+}
+
+@keyframes bounce-up {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+}
+
+.popup-background-pr {
+    @apply backdrop-blur-xs bg-bg-pr/80;
+}
+
+.popup-background-sc {
+    @apply backdrop-blur-xs bg-bg-pr/90;
+}
+
+.popup-background-tr {
+    @apply backdrop-blur-xs bg-bg-pr/95;
+}
+
+.popup-card {
+    @apply overflow-hidden rounded-2xl border border-fill-qt/50 shadow-2xl;
+}
+
+.active-tab{
+    @apply relative after:content-[''] after:absolute after:-bottom-px after:left-0 after:w-full after:h-px after:bg-brand-900 after:rounded-tl-sm after:rounded-tr-sm;
+}
+
+.emojis-picker-active-tab{
+    @apply after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[3px] after:rounded-tl-md after:rounded-tr-md after:right-0 after:w-full after:bg-brand-900;
+}
+
+.active-tab-link{
+    @apply relative after:content-[''] after:absolute after:-bottom-px after:left-0 after:w-full after:h-0.5 after:bg-lab-pr;
+}
+
+.auth-content{
+    width: 100%;
+    max-width: 460px;
+    margin: 0 auto;
+}
+
+.auth-page-frame{
+    @apply relative w-full max-w-6xl mx-auto;
+}
+
+.auth-layout-grid{
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-8 items-stretch;
+    grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 1024px){
+    .auth-layout-grid{
+        grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    }
+}
+
+.auth-hero-panel{
+    @apply hidden lg:flex flex-col justify-between rounded-3xl border border-fill-qt/60 p-8 xl:p-10;
+    background: radial-gradient(90% 120% at 20% 10%, color-mix(in srgb, var(--brand-900) 16%, transparent), transparent), linear-gradient(150deg, color-mix(in srgb, var(--bg-pr) 94%, black), color-mix(in srgb, var(--bg-pr) 82%, black));
+}
+
+.auth-hero-chip{
+    @apply inline-flex self-start items-center rounded-full px-3 py-1 text-cap-l font-semibold;
+    background: color-mix(in srgb, var(--brand-900) 18%, transparent);
+    color: color-mix(in srgb, var(--lab-pr2) 92%, white);
+    letter-spacing: 0.04em;
+}
+
+.auth-hero-title{
+    @apply mt-6 text-3xl xl:text-4xl font-semibold tracking-tight;
+    color: var(--lab-pr);
+}
+
+.auth-hero-caption{
+    @apply mt-4 text-par-m max-w-md;
+    color: var(--lab-sc);
+}
+
+.auth-hero-points{
+    @apply mt-8 space-y-3;
+}
+
+.auth-hero-point{
+    @apply flex items-center gap-2 text-par-s;
+    color: var(--lab-pr2);
+}
+
+.auth-dot{
+    @apply block size-2 rounded-full;
+    background: var(--brand-900);
+}
+
+.auth-form-stage{
+    @apply flex flex-col items-stretch justify-center;
+}
+
+.auth-form-shell{
+    @apply rounded-3xl border border-fill-qt/60 p-5 md:p-7 shadow-2xl backdrop-blur-sm;
+    background: color-mix(in srgb, var(--bg-pr) 95%, transparent);
+    animation: auth-fade-up 420ms ease-out;
+}
+
+.auth-form-input{
+    @apply block w-full h-12 rounded-xl border px-4 text-par-s md:text-par-m outline-hidden transition;
+    background: color-mix(in srgb, var(--bg-pr) 85%, white);
+    border-color: color-mix(in srgb, var(--fill-qt) 95%, white);
+    color: var(--lab-pr);
+}
+
+.auth-form-input:focus{
+    border-color: color-mix(in srgb, var(--brand-900) 60%, white);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-900) 18%, transparent);
+}
+
+.auth-primary-button{
+    @apply block w-full rounded-xl h-12 transition;
+}
+
+.auth-social-button{
+    @apply rounded-xl border block leading-none transition;
+    border-color: color-mix(in srgb, var(--fill-qt) 95%, white);
+    background: color-mix(in srgb, var(--bg-pr) 95%, white);
+}
+
+.auth-social-button:hover{
+    background: color-mix(in srgb, var(--fill-fv) 58%, var(--bg-pr));
+}
+
+.auth-link{
+    @apply text-center block text-par-m font-medium;
+    color: var(--brand-900);
+}
+
+.auth-link:hover{
+    text-decoration: underline;
+}
+
+.auth-deco{
+    @apply pointer-events-none absolute rounded-full blur-3xl opacity-35;
+}
+
+.auth-deco-one{
+    width: 280px;
+    height: 280px;
+    left: 5%;
+    top: 4%;
+    background: color-mix(in srgb, var(--brand-900) 65%, transparent);
+}
+
+.auth-deco-two{
+    width: 240px;
+    height: 240px;
+    right: 8%;
+    bottom: 10%;
+    background: color-mix(in srgb, var(--fill-qt) 80%, var(--brand-900));
+}
+
+.auth-mobile-banner{
+    @apply lg:hidden rounded-2xl border border-fill-qt/60 p-4 mb-4;
+    background: radial-gradient(120% 140% at 0% 0%, color-mix(in srgb, var(--brand-900) 12%, transparent), transparent), color-mix(in srgb, var(--bg-pr) 96%, white);
+}
+
+.auth-mobile-chip{
+    @apply inline-flex rounded-full px-2.5 py-1 text-cap-l font-semibold;
+    background: color-mix(in srgb, var(--brand-900) 16%, transparent);
+    color: var(--lab-pr2);
+}
+
+.auth-mobile-title{
+    @apply text-title-2 font-semibold mt-2;
+    color: var(--lab-pr2);
+}
+
+.auth-mobile-caption{
+    @apply text-par-s mt-1;
+    color: var(--lab-sc);
+}
+
+.auth-hero-stats{
+    @apply mt-8 grid grid-cols-2 gap-3;
+}
+
+.auth-stat-card{
+    @apply rounded-xl border border-fill-qt/60 p-3;
+    background: color-mix(in srgb, var(--bg-pr) 90%, white);
+}
+
+.auth-stat-label{
+    @apply text-cap-l;
+    color: var(--lab-sc);
+}
+
+.auth-stat-value{
+    @apply text-par-m font-semibold mt-1;
+    color: var(--lab-pr2);
+}
+
+.auth-fade-in-up{
+    animation: auth-fade-up 500ms ease-out;
+}
+
+@keyframes auth-fade-up {
+    from{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.backdrop-close-button-container-top-right{
+    @apply fixed top-4 right-6 2xl:top-8 2xl:right-8 inline-block;
+}
+
+.backdrop-close-button-container-top-left{
+    @apply fixed top-4 left-6 2xl:top-8 2xl:left-8 inline-block;
+}
+
+.hidden-scroll{
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.hidden-scroll::-webkit-scrollbar{
+    display: none;
+}

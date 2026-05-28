@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "user_id": 1,
+        "balance": {},
+        "currency": "USD",
+        "wallet_number": "CLB-KXV2BYRS6CYQXWGI"
+    },
+    {
+        "id": 2,
+        "user_id": 3,
+        "balance": {},
+        "currency": "USD",
+        "wallet_number": "W-CPOP1HJIKYEAHWZJ"
+    },
+    {
+        "id": 3,
+        "user_id": 2,
+        "balance": {},
+        "currency": "USD",
+        "wallet_number": "W-H41AE7DQ1MO8VWZE"
+    },
+    {
+        "id": 4,
+        "user_id": 4,
+        "balance": {},
+        "currency": "USD",
+        "wallet_number": "W-CLFAT9I4KPJFT3OF"
+    }
+]

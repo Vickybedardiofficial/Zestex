@@ -1,0 +1,66 @@
+<template>
+	<div v-if="! state.isLoading" class="pt-4 pb-2.5">
+		<div class="mb-1 px-4">
+			<h5 class="text-lab-pr2 font-semibold text-par-l">
+				{{ $t('labels.follow_recommendations') }}
+			</h5>
+		</div>
+		<template v-if="followRecommendations.length">
+			<div class="block">
+				<PeopleListItem v-for="userData in followRecommendations" v-bind:key="userData.id" v-bind:userData="userData"></PeopleListItem> 
+			</div>
+
+			<div class="px-4">
+				<RouterLink v-bind:to="{ name: 'explore_people' }" class="text-par-n flex justify-between text-lab-sc cursor-pointer">
+					<span class="shrink-0">
+						{{ $t('labels.more_suggestions') }}
+					</span>
+					<span class="shrink-0 size-icon-x-small">
+						<SvgIcon name="chevron-right"></SvgIcon>
+					</span>
+				</RouterLink>
+			</div>
+		</template>
+		<template v-else>
+			<div class="px-4">
+				<p class="text-par-s text-lab-pr2">
+					No suggestions yet.
+				</p>
+			</div>
+		</template>
+	</div>
+	<Border height="h-2" opacity="opacity-30"></Border>
+</template>
+
+<script>
+	import { defineComponent, reactive, onMounted, computed, ref } from 'vue';
+	import { useRecommendStore } from '@M/store/recommend/recommend.store.js';
+
+	import PeopleListItem from '@M/components/people/PeopleListItem.vue';
+	
+	export default defineComponent({
+		setup: function(props, context) {
+			const recommendStore = useRecommendStore();
+
+			const state = reactive({
+				isLoading: true
+			});
+
+			const followRecommendations = ref([]);
+
+			onMounted(async () => {
+				followRecommendations.value = await recommendStore.fetchFollowRecommendations();
+
+				state.isLoading = false;
+			});
+
+			return {
+				state: state,
+				followRecommendations: followRecommendations,
+			};
+		},
+		components: {
+			PeopleListItem: PeopleListItem
+		}
+	});
+</script>

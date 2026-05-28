@@ -1,0 +1,17 @@
+{
+    "created_at": "2026-02-24T13:29:08+00:00",
+    "database_dump": {
+        "path": "C:\\xampp\\htdocs\\colibriplus\\storage\\backups\\db\\20260224_132813.sql",
+        "size_bytes": 0
+    },
+    "uploads_zip": {
+        "path": "C:\\xampp\\htdocs\\colibriplus\\storage\\backups\\uploads\\20260224_132813.zip",
+        "size_bytes": 0
+    },
+    "counts": {
+        "users": 1261,
+        "posts": 1813,
+        "comments": 2934,
+        "messages": 0
+    }
+}
